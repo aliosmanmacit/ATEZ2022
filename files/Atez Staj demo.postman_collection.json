@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "da760cc4-32d7-4857-9f07-02ea0d10d9b8",
+		"name": "Atez Staj demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3822158"
+	},
+	"item": [
+		{
+			"name": "Adres",
+			"item": [
+				{
+					"name": "adres post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ulke\" : \"Turkiye\",\n    \"sehir\": \"Istanbul\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/adreses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"adreses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
