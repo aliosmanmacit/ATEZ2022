@@ -9,7 +9,6 @@ spring:
     driverClassName: org.postgresql.Driver
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-    initialization-mode: never # always, never, embeded
     hikari:
       minimumIdle: 2
       maximumPoolSize: 10
@@ -31,6 +30,9 @@ spring:
     properties:
       hibernate:
         format_sql: false
+  sql:
+    init:
+      mode:
 
 logging:
   level:
