@@ -19,30 +19,21 @@ import java.util.Set;
 public class Firma {
 
     @OneToMany
-    @JoinColumn(name = "id")
-    @ToString.Exclude
-    @JsonManagedReference
-    private Set<Beyanname> beyanname;
-
-    @OneToMany
-    @JoinColumn(name = "id")
-    @ToString.Exclude
-    @JsonManagedReference
-    private Set<Beyanname> beyanname2;
-
-    @OneToMany
     @JoinColumn(name="id")
     @ToString.Exclude
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<Arac> arac;
+
     @OneToOne
     @JoinColumn(name = "gonderici_adres")
-    @JsonBackReference
+    // @JsonBackReference
     private Adres adres;
+
     @OneToOne
     @JoinColumn(name = "alici_adres")
-    @JsonBackReference
+    //@JsonBackReference
     private Adres adres2;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

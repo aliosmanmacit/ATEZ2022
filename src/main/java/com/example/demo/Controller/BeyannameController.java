@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/uygulama1")
+@RequestMapping(value = "/uygulama1")
 public class BeyannameController {
 
     @Autowired

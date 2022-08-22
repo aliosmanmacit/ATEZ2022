@@ -10,8 +10,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 import java.util.Objects;
+import java.util.Set;
 
-import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.*;
 
 @Getter
 @Setter
@@ -23,60 +24,48 @@ import static javax.persistence.CascadeType.ALL;
 public class Beyanname {
 
 
-
-
     @ManyToOne
     @JoinColumn(name = "varis_gumruk_id")
-    @JsonBackReference
+    // @JsonBackReference
     private Gumruk varis_gumruk;
 
     @ManyToOne
     @JoinColumn(name = "cikis_gumruk_id")
-    @JsonBackReference
+    // @JsonBackReference
     private Gumruk cikis_gumruk;
 
+    @OneToMany(mappedBy = "beyanname")
 
-
-
-
-
-    @ManyToOne(cascade = ALL)
-    @JoinColumn(name="urun_id")
-    @JsonManagedReference
-    private Urun urun;
-
-
-
-
+    // @JsonManagedReference
+    private Set<Urun> urun;
 
     @ManyToOne
     @JoinColumn(name = "alici_firma_id")
-    @JsonBackReference
+    // @JsonBackReference
     private Firma alici_firma;
 
     @ManyToOne
     @JoinColumn(name = "gonderici_firma_id")
-    @JsonBackReference
+    // @JsonBackReference
     private Firma gonderici_firma;
-
-
 
 
     @ManyToOne
     @JoinColumn(name = "tasiyici_arac_id")
-    @JsonBackReference
+ //   @JsonBackReference
     private Arac arac;
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String tescil_id;
+
+
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate tarih;
 
 
+   /*
+    private String tescil_id;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -91,7 +80,5 @@ public class Beyanname {
     }
 
 
-
-
-
+    */
 }

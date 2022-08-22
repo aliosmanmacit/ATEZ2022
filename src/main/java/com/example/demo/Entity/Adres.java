@@ -15,18 +15,10 @@ import java.util.Objects;
 @Table(name="adres")
 public class Adres {
 
-    @OneToOne
-    @JoinColumn(name = "id")
-    @JsonBackReference
-    private Firma firma;
-    @OneToOne
-    @JoinColumn(name = "id")
-    @JsonBackReference
-    private Firma firma2;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String ülke;
+    private String ulke;
     private String sehir;
     private String ilce;
     private String detay;

@@ -17,19 +17,11 @@ import java.util.Set;
 @Table(name="Arac")
 public class Arac {
 
-    @OneToMany
-    @JoinColumn(name = "id")
-    @ToString.Exclude
-    @JsonManagedReference
-    private Set<Beyanname> beyanname;
-
 
     @ManyToOne
     @JoinColumn(name = "firma_id")
-    @JsonBackReference
+   // @JsonBackReference
     private Firma firma;
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

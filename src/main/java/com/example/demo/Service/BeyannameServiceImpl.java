@@ -70,6 +70,7 @@ public class BeyannameServiceImpl implements BeyannameService{
 
         Optional<Arac> tasiyici_arac=aracService.findById(beyannameRequest.tasiyici_arac);
 
+        /*
         beyanname.setTescil_id(beyannameRequest.tescil_id);
         beyanname.setTarih(beyannameRequest.tarih);
         beyanname.setCikis_gumruk(cikis_gumruk.get());
@@ -78,6 +79,9 @@ public class BeyannameServiceImpl implements BeyannameService{
         beyanname.setGonderici_firma(firma2);
         beyanname.setAlici_firma(firma);
         beyanname.setUrun(urun.get());
+        */
+
+
         alici_firma.get().setAdres2(alici_firma_adres.get());
         gonderici_firma.get().setAdres(gonderici_firma_adres.get());
 
