@@ -1,6 +1,7 @@
 package com.example.demo.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -16,17 +17,15 @@ import java.util.Set;
 @Table(name = "urun")
 public class Urun {
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "beyanname_id", foreignKey = @ForeignKey(name = "fk_urun_beyanname"))
+    @JsonManagedReference("urun")
+    private Set<Beyanname> beyanname;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "beyanname_id", foreignKey = @ForeignKey(name = "fk_urun_beyanname"))
-    private Beyanname beyanname;
-
-
-    /*
     private String urun_ad;
     private String int_kod;
     private Integer brut_agirlik;
@@ -45,10 +44,4 @@ public class Urun {
     public int hashCode() {
         return getClass().hashCode();
     }
-     @OneToMany
-    @JoinColumn(name = "id", insertable=false, updatable=false)
-    @JsonBackReference
-    private Set<Beyanname> beyanname;
-
-     */
 }

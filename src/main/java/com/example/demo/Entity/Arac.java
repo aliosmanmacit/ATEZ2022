@@ -18,10 +18,14 @@ import java.util.Set;
 public class Arac {
 
 
+
+
     @ManyToOne
     @JoinColumn(name = "firma_id")
-   // @JsonBackReference
+    @JsonBackReference("firma")
     private Firma firma;
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

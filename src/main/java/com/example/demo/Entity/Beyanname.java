@@ -8,11 +8,12 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import static javax.persistence.CascadeType.*;
+import static javax.persistence.CascadeType.ALL;
 
 @Getter
 @Setter
@@ -24,48 +25,59 @@ import static javax.persistence.CascadeType.*;
 public class Beyanname {
 
 
+
+
     @ManyToOne
     @JoinColumn(name = "varis_gumruk_id")
-    // @JsonBackReference
+    @JsonBackReference
     private Gumruk varis_gumruk;
 
     @ManyToOne
     @JoinColumn(name = "cikis_gumruk_id")
-    // @JsonBackReference
+    @JsonBackReference
     private Gumruk cikis_gumruk;
 
-    @OneToMany(mappedBy = "beyanname")
 
-    // @JsonManagedReference
-    private Set<Urun> urun;
+
+    @ManyToOne
+    @JsonBackReference("urun")
+    private Urun urun;
+
+
+
+
+
+
+
 
     @ManyToOne
     @JoinColumn(name = "alici_firma_id")
-    // @JsonBackReference
+    @JsonBackReference
     private Firma alici_firma;
 
     @ManyToOne
     @JoinColumn(name = "gonderici_firma_id")
-    // @JsonBackReference
+    @JsonBackReference
     private Firma gonderici_firma;
+
+
 
 
     @ManyToOne
     @JoinColumn(name = "tasiyici_arac_id")
- //   @JsonBackReference
+    @JsonBackReference
     private Arac arac;
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-
+    private String tescil_id;
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate tarih;
 
 
-   /*
-    private String tescil_id;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,5 +92,7 @@ public class Beyanname {
     }
 
 
-    */
+
+
+
 }

@@ -15,12 +15,10 @@ import java.util.Set;
 @Table(name ="gumruk")
 public class Gumruk {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-
-    /*
     private String gumruk_ad;
     private String int_kod;
     private String adres;
@@ -38,6 +36,4 @@ public class Gumruk {
     public int hashCode() {
         return getClass().hashCode();
     }
-
-     */
 }

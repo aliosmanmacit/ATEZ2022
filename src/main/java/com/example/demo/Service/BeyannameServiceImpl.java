@@ -50,40 +50,22 @@ public class BeyannameServiceImpl implements BeyannameService{
     {
 
         Beyanname beyanname=new Beyanname();
-        Firma firma=new Firma();
-        Firma firma2=new Firma();
-        Optional<Firma> alici_firma=firmaService.findById(beyannameRequest.alıcı_firma);
-        firma=alici_firma.get();
-        Adres adres=firma.getAdres();
-        Optional<Adres> alici_firma_adres=adresService.findById(adres.getId());
-
-        Optional<Firma> gonderici_firma=firmaService.findById(beyannameRequest.gonderici_firma);
-        firma2=gonderici_firma.get();
-        Adres adres2=firma2.getAdres();
-        Optional<Adres> gonderici_firma_adres=adresService.findById(adres2.getId());
-
-        Optional<Urun> urun=urunService.findById(beyannameRequest.urun_id);
-
-        Optional<Gumruk> cikis_gumruk=gumrukService.findById(beyannameRequest.cikis_gumruk);
-
-        Optional<Gumruk> varis_gumruk=gumrukService.findById(beyannameRequest.varis_gümrük);
-
-        Optional<Arac> tasiyici_arac=aracService.findById(beyannameRequest.tasiyici_arac);
-
-        /*
         beyanname.setTescil_id(beyannameRequest.tescil_id);
         beyanname.setTarih(beyannameRequest.tarih);
+        Optional<Gumruk> cikis_gumruk=gumrukService.findById(beyannameRequest.cikis_gumruk.getId());
+        Optional<Gumruk> varis_gumruk=gumrukService.findById(beyannameRequest.varis_gümrük.getId());
+        Optional<Arac> tasiyici_arac=aracService.findById(beyannameRequest.tasiyici_arac.getId());
+        Optional<Firma> gonderici_firma=firmaService.findById(beyannameRequest.gonderici_firma.getId());
+        Optional<Firma> alici_firma=firmaService.findById(beyannameRequest.alıcı_firma.getId());
+        Optional<Urun> urun=urunService.findById(beyannameRequest.urun.getId());
+        beyanname.setUrun(urun.get());
         beyanname.setCikis_gumruk(cikis_gumruk.get());
         beyanname.setVaris_gumruk(varis_gumruk.get());
         beyanname.setArac(tasiyici_arac.get());
-        beyanname.setGonderici_firma(firma2);
-        beyanname.setAlici_firma(firma);
-        beyanname.setUrun(urun.get());
-        */
+        beyanname.setAlici_firma(alici_firma.get());
+        beyanname.setGonderici_firma(gonderici_firma.get());
 
 
-        alici_firma.get().setAdres2(alici_firma_adres.get());
-        gonderici_firma.get().setAdres(gonderici_firma_adres.get());
 
 
 
